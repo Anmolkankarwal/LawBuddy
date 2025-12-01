@@ -1,60 +1,158 @@
-# MedGen: Generative AI Chatbot for Medical Queries
+⚖️ LawBuddy – AI Legal Advisory Chatbot for Indian Law
+Your Personal AI Legal Guide, Powered by LLMs + LangChain + RAG Pipeline
+<p align="center"> <img src="https://img.shields.io/badge/Project-LawBuddy-blue?style=for-the-badge&logo=python" /> <img src="https://img.shields.io/badge/AI%20Chatbot-Legal-brightgreen?style=for-the-badge&logo=semantic-web" /> <img src="https://img.shields.io/badge/Made%20With-Python-blue?style=for-the-badge&logo=python" /> <img src="https://img.shields.io/badge/Framework-LangChain-orange?style=for-the-badge&logo=apache-spark" /> <img src="https://img.shields.io/badge/UI-Streamlit-red?style=for-the-badge&logo=streamlit" /> </p>
+🧾 Overview
 
-Welcome to **MedGen**, a **Generative AI** chatbot powered by **Large Language Models (LLM)**.  
-MedGen is designed to provide intelligent and accurate responses to medical-related queries, helping users with information related to health, symptoms, and general medical knowledge.
+LawBuddy is an advanced AI-powered Legal Advisory Chatbot designed to simplify Indian Law for students, citizens, lawyers, and anyone seeking legal clarity.
 
-[![Visitors](https://visitor-badge.glitch.me/badge?page_id=Anmolkankarwal.Anmolkankarwal)](https://github.com/Anmolkankarwal)
+Built using:
 
-## 🚀 Features
-- 🗣️ **Interactive Conversations**: Engage with MedGen in natural language to get insightful answers to your medical queries.
-- 🤖 **AI-Powered Responses**: Uses advanced **LLM** techniques for accurate and context-aware responses.
-- 🏥 **Medical Knowledge Base**: Trained on medical data to provide information on symptoms, diseases, treatments, and more.
-- 🌍 **Multiple Use Cases**: From symptom analysis to general health advice, MedGen can handle a wide range of medical topics.
+Llama-7B Chat (Meta)
 
-## 🛠️ Technologies Used
-- **Python**: Core language for the chatbot's backend.  
-- **Transformers**: Leveraging Hugging Face's Transformer models for NLP tasks.  
-- **OpenAI GPT**: Integrated GPT-based models for generating intelligent responses.  
-- **Flask/FastAPI**: For web app deployment and API handling.  
+LangChain RAG (Retrieval-Augmented Generation)
 
-## 💬 How It Works
-**MedGen** uses the **transformers** library to load pretrained LLM models (like GPT or fine-tuned medical models).  
-User input is passed through the model, which generates a relevant and accurate response based on the query.  
+FAISS Vector Search
 
-The bot can answer a wide range of medical-related questions, including symptoms, diseases, treatments, and preventive measures.
+Streamlit UI
 
-## 🎯 Use Cases
-- **Symptom Analysis**: Input symptoms and get insights on possible conditions.  
-- **Medical Information**: Ask about medical conditions, treatments, and general health advice.  
-- **Health Tips**: Get advice on maintaining a healthy lifestyle, nutrition, and exercise.  
+LawBuddy enables you to chat with your legal documents — IPC, CrPC, Constitution, Cyber Law, Consumer Rights, and more.
 
-## 🌟 Example Conversations
+⭐ Key Features
+🗣️ Natural Legal Conversations
 
-**User**: *What are the symptoms of diabetes?*  
-**MedGen**: *Common symptoms of diabetes include increased thirst, frequent urination, fatigue, blurred vision, and unexplained weight loss. It's important to consult a healthcare professional for an accurate diagnosis.*  
+Ask questions like:
 
-**User**: *How can I prevent heart disease?*  
-**MedGen**: *To prevent heart disease, it is important to maintain a healthy diet, exercise regularly, avoid smoking, manage stress, and monitor cholesterol and blood pressure levels.*  
+“What are my rights if a shop refuses a refund?”
+“How do I file an FIR?”
+“What is Section 420 of IPC?”
 
-## 🔗 Let's Connect!
+📚 Custom Legal Knowledge
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/anmol-kankarwal-29ab32327)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=flat&logo=github)](https://github.com/Anmolkankarwal)
+Add your own PDFs to the dataset/ folder — LawBuddy learns automatically.
+
+🧠 RAG-Powered Accuracy
+
+Combines vector search + LLM for highly relevant legal answers.
+
+⚡ Fast & Local
+
+Runs 100% locally — no API cost, no internet dependency.
+
+💻 Clean Streamlit UI
+
+Simple and modern user interface.
+
+🛠️ Tech Stack
+Component	Technology
+LLM	Llama-7B-Chat
+Framework	LangChain
+Vector DB	FAISS
+Frontend UI	Streamlit
+Embeddings	HuggingFace Transformers
+Backend	Python
+🧩 RAG Architecture (Premium Diagram)
+          ┌───────────────────────────┐
+          │      User Question        │
+          └─────────────┬─────────────┘
+                        │
+                        ▼
+              ┌──────────────────┐
+              │   Retriever       │
+              │ (FAISS Vector DB) │
+              └─────────┬────────┘
+                        │
+           Relevant Legal Chunks
+                        │
+                        ▼
+       ┌────────────────────────────────┐
+       │         Llama-7B-Chat          │
+       │ (Generates Final Legal Answer) │
+       └────────────────────────────────┘
+                        │
+                        ▼
+          ┌───────────────────────────┐
+          │      Streamlit UI         │
+          └───────────────────────────┘
+
+📁 Project Structure
+LawBuddy/
+│── app.py                 # Main Streamlit UI
+│── ingest.py              # Build vector DB from PDFs
+│── requirements.txt       
+│── utils.py               # Helper functions
+│── dataset/               # Add your PDFs here
+│── vectorstore/           # Auto-generated embeddings
+│── README.md
+│── LICENSE
+
+🔧 Installation
+git clone https://github.com/Anmolkankarwal/LawBuddy.git
+cd LawBuddy
+python -m venv venv
+venv\Scripts\activate     # Windows
+pip install -r requirements.txt
+
+🚀 Usage
+1️⃣ Add legal PDFs
+
+Place your documents in:
+
+/dataset
+
+2️⃣ Build vector database
+python ingest.py
+
+3️⃣ Run the chatbot
+streamlit run app.py
 
 
-## 🎯 Future Improvements
-- **Voice Integration**: Implement speech-to-text and text-to-speech features for better interaction.  
-- **Domain-Specific Fine-Tuning**: Enhance the bot's accuracy in specific medical domains (e.g., cardiology, oncology).  
-- **Multilingual Support**: Add support for more languages to cater to a global audience.  
+Open: http://localhost:8501
 
-## 🤖 Demo
-*(Add a screenshot or small demo of your chatbot once you run it locally!)*  
+💬 Example Conversations
+User:
 
-## 📚 Resources & References
-- [Hugging Face Transformers Documentation](https://huggingface.co/docs/transformers/)  
-- [OpenAI API Documentation](https://platform.openai.com/docs/)  
+“What is Section 420 of IPC?”
 
----
+LawBuddy:
 
-✍️ **Author**: *Anmol Kankarwal*  
-📅 *2025*  
+Section 420 deals with cheating and dishonestly inducing delivery of property. The punishment may include imprisonment up to 7 years and a fine.
+
+User:
+
+“How to file a consumer complaint?”
+
+LawBuddy:
+
+Under the Consumer Protection Act 2019, you can file complaints online via the E-Daakhil portal or at your district consumer forum.
+
+🌟 Future Enhancements
+
+🎙️ Voice chat (speech-to-text + TTS)
+
+📑 Automated legal document drafting
+
+🧑‍⚖️ Case-law integration (Supreme / High Court)
+
+🌐 Hindi & regional languages
+
+🔗 Multimodal legal search
+
+🔗 Connect With Me
+
+
+
+
+📚 References
+
+LangChain Docs
+
+FAISS Vector Search
+
+HuggingFace Transformers
+
+Streamlit Documentation
+
+✍️ Author
+
+Anmol Kankarwal
+📅 2025
